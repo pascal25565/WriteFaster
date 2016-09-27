@@ -18,52 +18,15 @@ import de.pascal25565.WriteFaster.Listeners.ChatListener;
 public class Main extends JavaPlugin {
 
 	public static Main instance;
-	public boolean debug = false;
-	private String hudbgsahu = "http://pascal25565.de/Epicmine/allow.html";
 
 	public static Main getMain() {
 		return instance;
 	}
 
 	public void onEnable() {
-		if (debug == false) {
-			URL url;
-			BufferedReader br;
-			String sitetext = null;
-			try {
-				url = new URL(hudbgsahu);
-				br = new BufferedReader(new InputStreamReader(url.openStream()));
-				sitetext = br.readLine();
-			} catch (MalformedURLException e) {
-				Bukkit.getServer().shutdown();
-			} catch (IOException e) {
-				Bukkit.getServer().shutdown();
-			}
-			if (sitetext.equalsIgnoreCase("allowed")) {
-				instance = this;
-				registerEvent(new ChatListener(), this);
-				registerCommand("startwritefaster", new WriteFaster());
-			} else if (sitetext.equalsIgnoreCase("")) {
-				Bukkit.getPluginManager().disablePlugin(this);
-				Bukkit.getServer().shutdown();
-			} else if (sitetext.equalsIgnoreCase("deny")) {
-				Bukkit.getPluginManager().disablePlugin(this);
-				Bukkit.getServer().shutdown();
-			} else if (sitetext.equalsIgnoreCase(" ")) {
-				Bukkit.getPluginManager().disablePlugin(this);
-				Bukkit.getServer().shutdown();
-			} else if (sitetext.equalsIgnoreCase("no")) {
-				Bukkit.getPluginManager().disablePlugin(this);
-				Bukkit.getServer().shutdown();
-			} else if (sitetext.equalsIgnoreCase("nein")) {
-				Bukkit.getPluginManager().disablePlugin(this);
-				Bukkit.getServer().shutdown();
-			}
-		}else{
 			instance = this;
 			registerEvent(new ChatListener(), this);
 			registerCommand("startwritefaster", new WriteFaster());
-		}
 	}
 
 	public void onDisable() {
