@@ -1,0 +1,7 @@
+name: WriteFaster
+version: 1.0
+author: pascal25565
+main: de.pascal25565.WriteFaster.Main
+
+commands:
+    startwritefaster:
