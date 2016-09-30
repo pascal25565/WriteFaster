@@ -1,1 +1,5 @@
 # WriteFaster
+
+Command:
+
+/writefasterstart
